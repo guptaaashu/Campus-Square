@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url "first" %}">Log in</a>
+<a href="#">Packages</a>
+<a href="#"}">Who we Are</a>
+<a href="#"}">What we Do</a>
+<a href="#"}">Our Thinking</a>
+<form method="post">
+{% csrf_token %}
+{% for field in form %}
+<p>
+{{ field.label_tag }}<br>
+{{ field }}
+{% if field.help_text %}
+  <small style="display: none">{{ field.help_text }}</small>
+{% endif %}
+{% for error in field.errors %}
+  <p style="color: red">{{ error }}</p>
+{% endfor %}
+</p>
+{% endfor %}
+
+<button type="submit">Sign up</button>
+</form>
+<h1>What We Are</h1>
+<p>Campus Square is an E commerce company which sells products to fresh entrants in the college/University.It provides a platform to the freshers to buy the products which they need, all at one place.We provide a broad range of products(educational,domestic,commercial) to our customers at reasonable prices.</p>
+<h1>What We do</h1>
+<p>The company provides diverse products to fresh entrants in the form of packages.(A package is a collection of items that students and their parents look for in and around the city.).We are aware of the fact that in the midst of college admissions and its formalities it becomes difficult for a student and his family to look for the other requirements in a new city.Our company will take care of all the requirements so that you can feel at home in the college/University.</p>
+<h1>Our Thinking</h1>
+<p>We all have been freshers at some point of time in our life and we are anxious, excited and worried about the new place and its ambience. Our company believes that we can share some of your anxiety and worries by providing you with  the rudimentary items/ products all at one place  so that you can feel at home.</p>
+<h1>Packages</h1>
+<p><a href="#">Click Here</a> to know more about packages</p>
+{% endblock %}
